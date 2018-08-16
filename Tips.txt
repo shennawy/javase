@@ -1,2 +1,9 @@
 Select project/package/class -> build -> javadoc
 Protected: Only parent and children can access
+Create Sequence/Trigger  pair for primary keys //PRODUCTS_SEQUENCES_AND_TRIGGERS
+Run GENERATING_SEQUENCES_TRIGGERS_PAIRS script
+    Comment the following: --EXECUTE GENERATE_SEQ_TRIGGERS_PAIR;
+    Drop Trigger/Sequence on products
+Run Script sys
+conn sys/orcl as sysdba
+Uncomment Execute statement and run it
