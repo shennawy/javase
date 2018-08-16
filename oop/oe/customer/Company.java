@@ -2,7 +2,7 @@ package javase.oop.oe.customer;
 
 public class Company extends Customer {
     private String companyContact;
-    private int discount;
+    private int companyDiscount;
 
     public Company() {
 
@@ -10,10 +10,10 @@ public class Company extends Customer {
 
 
     public Company(String address, int customerId, String customerName, String customerPhone, String companyContact,
-                   int discount) {
+                   int companyDiscount) {
         super(address, customerId, customerName, customerPhone);
         this.companyContact = companyContact;
-        this.discount = discount;
+        this.companyDiscount = companyDiscount;
     }
 
 
@@ -25,11 +25,11 @@ public class Company extends Customer {
         return companyContact;
     }
 
-    public void setDiscount(int discount) {
-        this.discount = discount;
+    public void setCompanyDiscount(int companyDiscount) {
+        this.companyDiscount = companyDiscount;
     }
 
-    public int getDiscount() {
-        return discount;
+    public int getCompanyDiscount() {
+        return companyDiscount;
     }
 }

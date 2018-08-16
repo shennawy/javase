@@ -22,7 +22,7 @@ public class Individual extends Customer {
 
         text +=
             "Customer name: " + super.getCustomerName() + " Customer Id: " + super.getCustomerId() +
-            " Customer phone: " + super.getCustomerPhone() + " Customer Address: " + super.customerAddress() +
+            " Customer phone: " + super.getCustomerPhone() + " Customer Address: " + super.getCustomerAddress() +
             " Customer License Number: " + licNumber;
 
         return text;

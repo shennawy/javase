@@ -18,12 +18,18 @@ public class Customer {
         this.customerPhone = customerPhone;
     }
 
+    public Customer(String customerName, String customerAddress, String customerPhone) {
+        super();
+        this.customerAddress = customerAddress;
+        this.customerName = customerName;
+        this.customerPhone = customerPhone;
+    }
 
     public void setAddress(String customerAddress) {
         this.customerAddress = customerAddress;
     }
 
-    public String customerAddress() {
+    public String getCustomerAddress() {
         return customerAddress;
     }
 
