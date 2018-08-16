@@ -1,0 +1,7 @@
+grant execute on OE.GENERATE_SEQ_TRIGGERS_PAIR to OE;
+
+grant create any table  to OE;
+
+grant create any sequence to OE;
+
+grant create any trigger to OE;
