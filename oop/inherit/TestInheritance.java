@@ -1,5 +1,6 @@
 package javase.oop.inherit;
 
+import javase.oop.interfaces.MaxRateInterface;
 import javase.oop.interfaces.Travel;
 
 public class TestInheritance {
@@ -41,12 +42,13 @@ public class TestInheritance {
         ((ProjectManager) t).getAnnualNetSalary();
 
 
-        //Anonymous Class, created and used on the fly
-        //for classes that don't inherit,
-        //instead of writing spaghetti
-        //in this case it should be in a class of its own,
-        //This is just an example
-        //Best used to implement methods in interface with one method only
+        /*Anonymous Class, created and used on the fly
+         *for classes that don't inherit,
+         *instead of writing spaghetti
+         *in this case it should be in a class of its own,
+         *This is just an example
+         *Best used to implement methods in interface with one method only
+        */
         Travel tTeamLeader = new Travel() {
 
             @Override
@@ -70,6 +72,24 @@ public class TestInheritance {
 
         System.out.println("----Team Leader Stuff----");
         System.out.println(tTeamLeader.getPerdiemCost(noDays));
+
+
+        // use MaxRateInterface method
+        MaxRateInterface personRate = new MaxRateInterface() {
+            /*
+             * Correct use of anonymous Class,
+             * when interface has only one method and generic enough to be used anywhere
+             */
+            @Override
+            public boolean checkRate(Person p) {
+                if (p.getPersonGrossSalary() < MaxRateInterface.MAX_RATE) {
+                    return false;
+                } else
+                    return true;
+            }
+        };
+        
+        System.out.println("Anonymous Class example: " + personRate.checkRate(m1));
     }
 
 
