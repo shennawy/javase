@@ -1,10 +1,11 @@
 package javase.oop.inherit;
 
+
 import javase.oop.interfaces.Travel;
 
-public class Consultant extends Person implements Travel {
-
-    public Consultant(int personId, String personName, double personGrossSalary) {
+public class ProjectManager extends Person implements Travel {
+    public ProjectManager(int personId, String personName, double personGrossSalary) {
+        // TODO Implement this method
         super(personId, personName, personGrossSalary);
     }
 
@@ -16,7 +17,7 @@ public class Consultant extends Person implements Travel {
 
     @Override
     public double getPerdiemCost(double noDays) {
-        return noDays * Travel.DAY_COST + 0.25 * getPersonGrossSalary();
+        return noDays * Travel.DAY_COST;
     }
 
     @Override
@@ -29,7 +30,6 @@ public class Consultant extends Person implements Travel {
         double tax = 10.0;
         return getPersonGrossSalary() - getPersonGrossSalary() * (tax / 100);
     }
-
 
     @Override
     public double getAnnualNetSalary() {

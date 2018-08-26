@@ -1,1 +1,2 @@
 Make DBConnectionFactory singelton
+Change table names to ENUM type

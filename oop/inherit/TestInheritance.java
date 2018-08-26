@@ -1,5 +1,7 @@
 package javase.oop.inherit;
 
+import javase.oop.interfaces.Travel;
+
 public class TestInheritance {
     public static void main(String[] args) {
         Employee e1 = new Employee(101, "Mahmoud", 6000.0, 30, 20.0);
@@ -19,6 +21,50 @@ public class TestInheritance {
         calcBonus(e1, bonus);
         calcBonus(m1, bonus);
 
+        // Interfaces
+
+        Consultant c1 = new Consultant(601, "Ehab", 12000.0);
+        int noDays = 5;
+        System.out.println("Consultant perdeim cost: " + c1.getPerdiemCost(noDays));
+
+        ProjectManager pm1 = new ProjectManager(701, "Nahla", 12000.0);
+        System.out.println("PM Perdeim cost: " + pm1.getPerdiemCost(noDays));
+
+        System.out.println("-----Constultant Report-----");
+        c1.showReport(c1, noDays);
+        System.out.println("-----Project Manager Report-----");
+        pm1.showReport(pm1, noDays);
+
+
+        //Polymorphism for objects who don't share a parent
+        Travel t = new ProjectManager(701, "Nahla", 12000.0);
+        ((ProjectManager) t).getAnnualNetSalary();
+
+
+        //Anonymous Class, created and used on the fly
+        Travel tTeamLeader = new Travel() {
+
+            @Override
+            public double getTicketCost() {
+                // TODO Implement this method
+                return 0.0;
+            }
+
+            @Override
+            public double getPerdiemCost(double noDays) {
+                // TODO Implement this method
+                return Travel.DAY_COST * noDays + 1500;
+            }
+
+            @Override
+            public double getAccomodationCost() {
+                // TODO Implement this method
+                return 0.0;
+            }
+        };
+        
+        System.out.println("----Team Leader Stuff----");
+        System.out.println(tTeamLeader.getPerdiemCost(noDays));
     }
 
 
