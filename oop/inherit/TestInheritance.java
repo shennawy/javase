@@ -12,7 +12,7 @@ public class TestInheritance {
         e1.printPersonDetails();
         System.out.println(e1);
 
-        Manager m1 = new Manager(102, "Magdy", 12000.0, 12);
+        Manager m1 = new Manager(102, "Magdy", 120000.0, 12);
 
         System.out.println("Manager Monthly: " + m1.getMonthlyNetSalary() + "Manager Annual: " +
                            m1.getAnnualNetSalary() + "Annual With Profit: " + m1.getAnnualNetSalary(100_000.00));
@@ -81,18 +81,43 @@ public class TestInheritance {
              * when interface has only one method and generic enough to be used anywhere
              */
             @Override
-            public boolean checkRate(Person p) {
-                return p.getPersonGrossSalary() < MaxRateInterface.MAX_RATE ? false : true;
+            public boolean checkRate(double amount) {
+                return amount < MaxRateInterface.MAX_RATE ? false : true;
             }
         };
-        System.out.println("Anonymous Class example: " + personRate.checkRate(m1));
+        System.out.println("Anonymous Class example: " + personRate.checkRate(m1.getMonthlyNetSalary()));
 
         // Lambda Example
         // Only works on interfaces with just one abstract method
-        MaxRateInterface personRateLambda = p -> p.getPersonGrossSalary() < MaxRateInterface.MAX_RATE ? false : true;
-        System.out.println("Lambda Example: " + personRateLambda.checkRate(m1));
+        // An implementation on MaxRateInterface
+        MaxRateInterface personRateLambda =
+            amount -> m1.getMonthlyNetSalary() < MaxRateInterface.MAX_RATE ? false : true;
+        System.out.println("Lambda Example: " + personRateLambda.checkRate(m1.getMonthlyNetSalary()));
+
+        System.out.println("*****Anonymous Java 7*****");
+
+        boolean isValid = validatePerson(m1, new MaxRateInterface() {
+
+            @Override
+            public boolean checkRate(double amount) {
+                return amount < MaxRateInterface.MAX_RATE ? false : true;
+            }
+        });
+        System.out.println("isValid ? ");
+        System.out.println(isValid);
+
+        System.out.println("*****Java 8*****");
+        System.out.println("Even more Lambda");
+        System.out.println("Manager M1 is valid ? " +
+                           validatePerson(m1, amount -> amount < MaxRateInterface.MAX_RATE ? false : true));
+
     }
 
+    // To be implemented when calling
+    // Like passing method implementation as a parameter
+    public static boolean validatePerson(Person p, MaxRateInterface maxRateInterface) {
+        return maxRateInterface.checkRate(p.getPersonGrossSalary());
+    }
 
     //Polymorphism baby
     public static void calcBonus(Person per, double bonus) {

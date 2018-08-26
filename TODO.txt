@@ -1,2 +1,3 @@
 Make DBConnectionFactory singelton
 Change table names to ENUM type
+Get to know functional interfaces, Lambda expressions
