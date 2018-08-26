@@ -41,7 +41,8 @@ public class TestInheritance {
         ((ProjectManager) t).getAnnualNetSalary();
 
 
-        //Anonymous Class, created and used on the fly
+        //Anonymous Class, created and used on the fly for classes that don't inherit,
+        //instead of writing spaghetti
         Travel tTeamLeader = new Travel() {
 
             @Override
@@ -62,7 +63,7 @@ public class TestInheritance {
                 return 0.0;
             }
         };
-        
+
         System.out.println("----Team Leader Stuff----");
         System.out.println(tTeamLeader.getPerdiemCost(noDays));
     }
