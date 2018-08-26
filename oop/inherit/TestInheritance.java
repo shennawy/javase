@@ -41,8 +41,12 @@ public class TestInheritance {
         ((ProjectManager) t).getAnnualNetSalary();
 
 
-        //Anonymous Class, created and used on the fly for classes that don't inherit,
+        //Anonymous Class, created and used on the fly
+        //for classes that don't inherit,
         //instead of writing spaghetti
+        //in this case it should be in a class of its own,
+        //This is just an example
+        //Best used to implement methods in interface with one method only
         Travel tTeamLeader = new Travel() {
 
             @Override
