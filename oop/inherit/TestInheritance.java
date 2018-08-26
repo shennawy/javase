@@ -82,13 +82,16 @@ public class TestInheritance {
              */
             @Override
             public boolean checkRate(Person p) {
-                if (p.getPersonGrossSalary() < MaxRateInterface.MAX_RATE) {
-                    return false;
-                } else
-                    return true;
+                // if (p.getPersonGrossSalary() < MaxRateInterface.MAX_RATE) {
+                // Boolean Condition
+                // If true, return what's after '?' and before the colon,
+                // else, return what's after the colon.
+                return p.getPersonGrossSalary() < MaxRateInterface.MAX_RATE ? false : true;
+                // } else
+                // return true;
             }
         };
-        
+
         System.out.println("Anonymous Class example: " + personRate.checkRate(m1));
     }
 

@@ -24,7 +24,6 @@ public class Manager extends Person {
         return getPersonGrossSalary() - getPersonGrossSalary()*(tax/100);
     }
 
-
     
     public double getAnnualNetSalary() {
         return getMonthlyNetSalary()*12;
