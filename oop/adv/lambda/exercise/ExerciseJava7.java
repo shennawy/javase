@@ -16,7 +16,14 @@ public class ExerciseJava7 {
 
         System.out.println("Before .sort");
         System.out.println("*****First Name A*****");
-        printPersonsFirstNameA(personsList);
+        printPersonsConditional(personsList, new Conditional() {
+
+            @Override
+            public boolean validate(Person p) {
+
+                return p.getPersonFirstName().startsWith("A");
+            }
+        });
         System.out.println("*****All list*****");
         printAllPersons(personsList);
 
@@ -31,15 +38,16 @@ public class ExerciseJava7 {
 
         System.out.println("After .sort");
         System.out.println("*****First Name A*****");
-        printPersonsFirstNameA(personsList);
+        // Lambda
+        printPersonsConditional(personsList, p -> p.getPersonFirstName().startsWith("A"));
         System.out.println("*****All list*****");
         printAllPersons(personsList);
 
     }
 
-    private static void printPersonsFirstNameA(List<Person> personsList) {
+    private static void printPersonsConditional(List<Person> personsList, Conditional condition) {
         for (Person p : personsList) {
-            if (p.getPersonFirstName().startsWith("A")) {
+            if (condition.validate(p)) {
                 System.out.println(p);
             }
         }
@@ -51,5 +59,8 @@ public class ExerciseJava7 {
         }
     }
 
+    interface Conditional {
+        boolean validate(Person p);
+    }
 
 }
