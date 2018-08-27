@@ -11,8 +11,8 @@ public interface Travel {
     public abstract double getTicketCost();
 
     public abstract double getPerdiemCost(double noDays);
-
-    public abstract double getAccomodationCost();
+    // Methods in interfaces are abstract and public by default
+    double getAccomodationCost();
 
     // Default Method Example
     public default void showReport(Person p, int noDays) {
@@ -29,4 +29,6 @@ public interface Travel {
             System.out.println("Monthly Net: " + ((ProjectManager) p).getMonthlyNetSalary());
         }
     }
+
+
 }
