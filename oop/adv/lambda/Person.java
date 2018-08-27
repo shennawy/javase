@@ -45,4 +45,9 @@ public class Person {
     public int getPersonAge() {
         return personAge;
     }
+
+    public String toString() {
+        return "Id: " + personId + " FirstName: " + personFirstName + " Last Name: " + personLastName + " Age: " +
+               personAge;
+    }
 }

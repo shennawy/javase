@@ -29,7 +29,15 @@ public class TestForEach {
         });
 
         System.out.println("*****Lambda For Each*****");
+        // p is of whatever type personsList is
         personsList.forEach(p -> System.out.println(p.getPersonFirstName()));
+
+        // stream() -> lovely for multiple operations, stream of methods to run
+        // Method Chaining
+        System.out.println("*****Stream*****");
+        personsList.stream().filter(p -> p.getPersonFirstName().startsWith("M"))
+            // forEach is a terminal operation, must be written last
+            .forEach(p -> System.out.println("First Name: " + p.getPersonFirstName()));
     }
 
 }
