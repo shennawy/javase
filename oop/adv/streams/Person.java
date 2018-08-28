@@ -76,6 +76,17 @@ public class Person {
 
     }
 
+    public static List<Person> createShortList() {
+        List<Person> personList = new ArrayList<>();
+
+        personList.add(new Person.Builder().setGivenName("Bob").setSurName("Baker").setAge(23).setGender(Gender.MALE).setEMail("bob.baker@example.com").setPhone("201-121-4678").setAddress("44 4th St").setCity("Smallville").setState("KS").setCode("12333").build());
+
+        personList.add(new Person.Builder().setGivenName("Jane").setSurName("Doe").setAge(25).setGender(Gender.FEMALE).setEMail("jane.doe@example.com").setPhone("202-123-4678").setAddress("33 3rd St").setCity("Smallville").setState("KS").setCode("12333").build());
+
+        personList.add(new Person.Builder().setGivenName("John").setSurName("Doe").setAge(28).setGender(Gender.MALE).setEMail("john.doe@example.com").setPhone("202-123-4678").setAddress("33 3rd St").setCity("Smallville").setState("KS").setCode("12333").build());
+        return personList;
+    }
+
     public static class Builder {
 
         private String givenName;
