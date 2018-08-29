@@ -1,4 +1,4 @@
-package com.example.lambda;
+package javase.oop.adv.Lab10.lambda_03;
 
 /**
  *
