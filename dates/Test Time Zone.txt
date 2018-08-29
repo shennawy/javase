@@ -1,0 +1,26 @@
+package cib.javase.adv.dates;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
+import java.time.ZonedDateTime;
+
+import java.util.Set;
+
+public class TestZoneDateTime {
+   public static void main(String[] args) {
+   
+    ZoneId zoneId = ZoneId.of("Europe/Athens");
+   System.out.println(zoneId);
+   
+  Set<String> zoneIds = ZoneId.getAvailableZoneIds();
+    
+    zoneIds.forEach(z->System.out.println(z));
+  
+  ZonedDateTime zoneDateTime = ZonedDateTime.of(LocalDateTime.now(), zoneId);
+  System.out.println("Local : "+LocalDateTime.now());
+  System.out.println("Zoned : "+zoneDateTime);
+  
+  
+   }
+}

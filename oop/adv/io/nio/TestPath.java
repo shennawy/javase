@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 public class TestPath {
     public static void main(String[] args) {
 
-        Path p = Paths.get("D:\\files\\work\\servletData.txt");
+     /*   Path p = Paths.get("C:\\JDeveloper\\mywork\\SEApplication\\SEProject\\src\\javase\\read_file_stream.txt");
 
         Path fileName = p.getFileName();
         System.out.println("File name : " + fileName);
@@ -35,6 +35,8 @@ public class TestPath {
 
 
         // normalize paths
+        // .. Means up one level
+        // normalize reads/decode the '..'
         Path p3 = Paths.get("D:\\home\\myWork\\..\\articles");
         Path cleanPath = p3.normalize();
         System.out.println("Clean path : " + cleanPath);
@@ -54,7 +56,8 @@ public class TestPath {
         // ex1. Check files
         // The Files.exists() method checks
         // if a given Path exists in the file system, for example
-        Path path = Paths.get("D:\\files\\servletData.txt");
+        /*
+        Path path = Paths.get("C:\\JDeveloper\\mywork\\SEApplication\\SEProject\\src\\javase\\read_file.txt");
         boolean exists = Files.exists(path, new LinkOption[] { LinkOption.NOFOLLOW_LINKS });
         System.out.println("File Exists : ? " + exists);
 
@@ -69,6 +72,7 @@ public class TestPath {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
 
 
         // ex. Deleting Files
@@ -80,11 +84,12 @@ public class TestPath {
             e.printStackTrace();
         }
 
-
+*/
+        /*
         // ex. Copying File
         System.out.println("Copying Files...");
-        Path pSrc = Paths.get("D:\\files\\servletData.txt");
-        Path pDest = Paths.get("D:\\files\\servletData22.txt");
+        Path pSrc = Paths.get("C:\\JDeveloper\\mywork\\SEApplication\\SEProject\\src\\javase\\read_file.txt");
+        Path pDest = Paths.get("C:\\JDeveloper\\mywork\\SEApplication\\SEProject\\src\\javase\\read_file2.txt");
 
         try {
             //  Files.copy(pSrc, pDest);
@@ -93,7 +98,8 @@ public class TestPath {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        */
+/*
         // ex. Move Files
 
         System.out.println("Moving Files...");
@@ -130,11 +136,12 @@ public class TestPath {
 
         // Returns the size of a file (in bytes).
         // public static long size(Path path)
-
+*/
 
         /// Streams with Files
         System.out.println("___________ List files ________");
-        try (Stream<Path> stream = Files.list(Paths.get("c:\\files"))) {
+        //Auto close resource Try
+        try (Stream<Path> stream = Files.list(Paths.get("C:\\JDeveloper\\mywork\\SEApplication\\SEProject\\src\\javase"))) {
             stream.map(String::valueOf).filter(pTextFiles -> pTextFiles.endsWith(".txt")).forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();

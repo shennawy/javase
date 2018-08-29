@@ -1,0 +1,31 @@
+
+public class TestLocalDate {
+   public static void main(String[] args) {
+   
+   LocalDate now, bDate, nowPlusMonth, nowMinus5Days, nowPlus5Days, customDate, nextTues, lastTues;
+   now = LocalDate.now();
+   System.out.println("Today date  : "+now);
+   
+   bDate = LocalDate.of(1987, Month.MAY, 9);
+   System.out.println("My Birthday : "+bDate);
+   
+   nowPlusMonth = now.plusMonths(1);
+   System.out.println("After 1 Month from now : "+nowPlusMonth);
+   
+   nowMinus5Days = now.minusDays(5);
+   System.out.println("Before today with 5 days : "+nowMinus5Days);
+   
+   nowPlus5Days = now.plusDays(5);
+   System.out.println("After today with 5 days : "+nowPlus5Days);
+   
+   customDate = now.withMonth(3).withDayOfMonth(7).withYear(2014);
+   System.out.println("Custom date : "+customDate);
+   
+  nextTues = now.plusDays(7 * 3).with(TemporalAdjusters.nextOrSame(DayOfWeek.TUESDAY));
+   System.out.println("Next Tuesday after 3 weeks : "+nextTues);
+   
+   System.out.println("Check for date validation : "+ now.getDayOfWeek().equals(DayOfWeek.TUESDAY));
+  
+      
+   }
+}

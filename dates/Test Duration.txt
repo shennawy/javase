@@ -1,0 +1,16 @@
+package cib.javase.adv.dates;
+
+import java.time.Duration;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
+public class TestDuration {
+   public static void main(String[] args) {
+   LocalTime localTimeNow = LocalTime.now();
+   LocalTime localTimeFuture = localTimeNow.plusSeconds(30);
+   
+  Duration d = Duration.between(localTimeNow, localTimeFuture);
+       System.out.println("Differ in seconds : "+d.getSeconds());    
+       
+   }
+}

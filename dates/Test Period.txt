@@ -1,0 +1,18 @@
+package cib.javase.adv.dates;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+public class TestPeriods {
+   public static void main(String[] args) {
+   
+   LocalDate localDateToday = LocalDate.now();
+   LocalDate localDateFuture = LocalDate.now().plusDays(5).plusMonths(3).plusYears(7);
+   
+ Period p =  Period.between(localDateToday, localDateFuture);
+   System.out.println("Differ years : "+p.getYears()+"; months : "+p.getMonths()+"; days : "+p.getDays());
+ 
+ 
+   
+   }
+}
