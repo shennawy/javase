@@ -7,8 +7,10 @@ public class TestThreadPoolRunnable {
     public static void main(String[] args) {
 
         long startTime = System.currentTimeMillis();
-        ExecutorService executor = Executors.newFixedThreadPool(20);
-
+        ExecutorService executor = Executors.newFixedThreadPool(24);
+        
+        // Creates Threads as needed, yields faster results if unable to estimate number of task per thread correctly
+        // ExecutorService executor = Executors.newCachedThreadPool();
         for (int i = 0; i < 20; i++) { /// Create 20 tasks for Threads in Thread pool
             Thread task = new Thread(new TaskThreadRunnable("Task " + i));
             executor.submit(task);
